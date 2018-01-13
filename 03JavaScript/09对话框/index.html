@@ -1,0 +1,85 @@
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>菜鸟教程(runoob.com)</title>
+    <link href="https://cdn.bootcss.com/ionic/1.3.2/css/ionic.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/ionic/1.3.2/js/ionic.bundle.min.js"></script>
+    <script type="text/javascript">
+        var app=angular.module('app', ['ionic']);
+        app.controller('controller',function($scope, $ionicPopup, $timeout) {
+                // Triggered on a button click, or some other target
+                $scope.showPopup = function() {
+                    $scope.data = {}
+                    // 自定义弹窗
+                 var myPopup = $ionicPopup.show({
+                        template: '<input type="password" ng-model="data.name">',
+                        title: '自定义弹窗大标题',
+                        subTitle: '自定义弹窗小标题',
+                        scope: $scope,
+                        buttons: [
+                            { text: '退出' },
+                            {
+                                text: '保存',
+                                type: 'button-positive',
+                                onTap: function(e) {
+                                    if (!$scope.data.name) {
+                                        // 不允许用户关闭，除非输入姓名
+                                        e.preventDefault();
+                                    } else {
+                                        return $scope.data.wifi;
+                                    }
+                                }
+                            },
+                        ]
+                    });
+                    myPopup.then(function(res) {
+                        console.log('显示输入的数据', res);
+                    });
+                    $timeout(function() {
+                        myPopup.close(); // 3秒后关闭弹窗
+                    }, 10000);
+                };
+                //  confirm 对话框
+                $scope.showConfirm = function() {
+                    var confirmPopup = $ionicPopup.confirm({
+                        title: '对话框标题',
+                        template: '对话框信息?'
+                    });
+                    confirmPopup.then(function(res) {
+                        if(res) {
+                            console.log('确认');
+                        } else {
+                            console.log('取消');
+                        }
+                    });
+                };
+                //  alert（警告） 对话框
+                $scope.showAlert = function() {
+                    var alertPopup = $ionicPopup.alert({
+                        title: '警告标题',
+                        template: '警告信息'
+                    });
+                    alertPopup.then(function(res) {
+                        console.log('Thank you for not eating my delicious ice cream cone');
+                    });
+                };
+            });
+    </script>
+</head>
+<body ng-app="app" class="padding" ng-controller="controller">
+<button class="button button-dark" ng-click="showPopup()">
+    弹窗显示
+</button>
+<button class="button button-positive" ng-click="showConfirm()">
+    确认对话框
+</button>
+<button class="button button-positive" ng-click="showAlert()">
+    警告框
+</button>
+
+<script id="popup-template.html" type="text/ng-template">
+    <input ng-model="data.wifi" type="text" placeholder="Password">
+</script>
+</body>
+</html>

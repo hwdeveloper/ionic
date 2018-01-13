@@ -1,0 +1,40 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>上拉菜单</title>
+    <link href="https://cdn.bootcss.com/ionic/1.3.2/css/ionic.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/ionic/1.3.2/js/ionic.bundle.min.js"></script>
+    <script type="text/javascript">
+        var app=angular.module('app', ['ionic'])
+        app.controller( 'controller',['$scope','$ionicActionSheet' ,function($scope,$ionicActionSheet){
+                $scope.show = function() {
+                    var hideSheet = $ionicActionSheet.show({
+                        buttons: [
+                            { text: '周末逛街' },
+                            { text: '床上发呆' },
+                            { text: '继续学习' }
+                        ],
+                        titleText: '组件标题',
+                        cancelText: '取消按钮',
+                        cancel: function() {
+                            console.log("取消");
+                        },
+                        buttonClicked: function(index) {
+                            console.log("联网请求数据"+index);
+                            return true;
+                        }
+                    });
+                };
+            }])
+    </script>
+</head>
+<body ng-app="app" ng-controller="controller" >
+
+<ion-pane>
+    <ion-content >
+        <h2 ng-click="show()">Action Sheet</h2>
+    </ion-content>
+</ion-pane>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>背景层</title>
+    <link href="https://cdn.bootcss.com/ionic/1.3.2/css/ionic.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/ionic/1.3.2/js/ionic.bundle.min.js"></script>
+    <script type="text/javascript">
+        angular.module('starter', ['ionic'])
+            .controller( 'actionsheetCtl',['$scope','$timeout' ,'$ionicBackdrop',function($scope,$timeout,$ionicBackdrop){
+
+                $scope.action = function() {
+                    $ionicBackdrop.retain();
+                    $timeout(function() {    //默认让它1秒后消失
+                        $ionicBackdrop.release();
+                    }, 1000);
+                };
+            }])
+    </script>
+</head>
+<body ng-app="starter" ng-controller="actionsheetCtl" >
+<ion-pane>
+    <ion-content >
+        <h2 ng-click="action()">背景</h2>
+    </ion-content>
+</ion-pane>
+</body>
+</html>

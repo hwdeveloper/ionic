@@ -1,0 +1,46 @@
+<html ng-app="ionicApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <title>05 单选框</title>
+    <link href="https://cdn.bootcss.com/ionic/1.3.2/css/ionic.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/ionic/1.3.2/js/ionic.bundle.min.js"></script>
+    <script type="text/javascript">
+        var app=angular.module('app', ['ionic'])
+        app.controller('controller', function($scope) {
+                $scope.clientSideList = [
+                    { text: "中国", value: "中国" },
+                    { text: "美国", value: "美国" },
+                    { text: "德国", value: "德国" },
+                    { text: "法国", value: "法国" }
+                ];
+                $scope.data = {
+                    clientSide: '中国'
+                };
+                $scope.serverSideChange = function(item) {
+                    console.log("Selected Serverside, text:", item.text, "value:", item.value);
+                };
+            });
+    </script>
+</head>
+
+<body ng-app="app" ng-controller="controller">
+<ion-header-bar class="bar-positive">
+    <h1 class="title">单选框</h1>
+</ion-header-bar>
+<ion-content>
+    <div class="list">
+        <div class="item item-divider">
+            选取的值为: {{ data.clientSide }}
+        </div>
+        <ion-radio ng-repeat="item in clientSideList"
+                   ng-value="item.value"
+                   ng-change="serverSideChange(item)"
+                   ng-model="data.clientSide">
+            {{ item.text }}
+        </ion-radio>
+    </div>
+</ion-content>
+</body>
+</html>
