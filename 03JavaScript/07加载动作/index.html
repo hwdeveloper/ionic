@@ -13,9 +13,9 @@
                 // Setup the loader
                 $ionicLoading.show({
                     content: 'Loading',
-                    showBackdrop: true
+                    showBackdrop: false
                 });
-        $timeout(function () {
+           $timeout(function () {
                     $ionicLoading.hide();
                }, 2000);
             });

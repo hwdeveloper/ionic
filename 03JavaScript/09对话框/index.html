@@ -27,7 +27,10 @@
                                         // 不允许用户关闭，除非输入姓名
                                         e.preventDefault();
                                     } else {
-                                        return $scope.data.wifi;
+
+
+
+                                        return $scope.data.name;
                                     }
                                 }
                             },
@@ -38,13 +41,13 @@
                     });
                     $timeout(function() {
                         myPopup.close(); // 3秒后关闭弹窗
-                    }, 10000);
+                    }, 2000);
                 };
                 //  confirm 对话框
                 $scope.showConfirm = function() {
                     var confirmPopup = $ionicPopup.confirm({
                         title: '对话框标题',
-                        template: '对话框信息?'
+                        template: '<h1>哈哈</h1><input type="password" ng-model="data.name">'
                     });
                     confirmPopup.then(function(res) {
                         if(res) {

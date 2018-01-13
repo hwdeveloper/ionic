@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="https://cdn.bootcss.com/ionic/1.3.2/css/ionic.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/ionic/1.3.2/js/ionic.bundle.min.js"></script>
+
+    <script>
+    var app = angular.module("app",['ionic']);
+    app.controller("controller",function($scope,$timeout,$ionicLoading){
+        $ionicLoading.show({
+            content:"加载中",
+            showBackdrop:true
+        });
+
+        $timeout(function () {
+            $ionicLoading.hide();
+        },3000)
+    });
+    </script>
+</head>
+<body>
+
+<!--ng-app 指令告诉 AngularJS，div 元素是 AngularJS 应用程序 的"所有者"。-->
+<div ng-app="app" ng-controller="controller">
+
+</div>
+
+</body>
+</html>
