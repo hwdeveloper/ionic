@@ -1,0 +1,20 @@
+<style ></style>
+<ion-view >
+    <ion-content>
+
+        <style>
+.img{
+    padding: 5px;
+}
+
+        </style>
+
+      <div ng-repeat="ob in array" ng-if="$index%3==0" style="display: flex;flex-direction: row;">
+
+                <img class="img" ng-if="array[$index]!=null" class="weiXinImg" style="{{'width: '+imgH+'px;height:'+imgH+'px;'}}" src="{{array[$index].img}}">
+                <img class="img" ng-if="array[$index+1]!=null" class="weiXinImg" style="{{'width: '+imgH+'px;height:'+imgH+'px;'}}" src="{{array[$index+1].img}}">
+                <img class="img" ng-if="array[$index+2]!=null" class="weiXinImg" style="{{'width: '+imgH+'px;height:'+imgH+'px;'}}" src="{{array[$index+2].img}}">
+      </div>
+
+    </ion-content>
+</ion-view>
