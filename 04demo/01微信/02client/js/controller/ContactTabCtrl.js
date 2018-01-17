@@ -10,7 +10,10 @@ app.controller("ContactTabCtrl",function ($scope,$http,$window) {
         {img:'res/img/kkk.jpg',country:'Sweden'},
         {img:'res/img/kkk.jpg',country:'Sweden'},
         {img:'res/img/kkk.jpg',country:'Sweden'},
-        {img:'res/img/kkk.jpg',country:'Sweden'},
+        {img:'res/img/kkk.jpg',country:'Sweden'}, {img:'res/img/kkk.jpg',country:'Sweden'},
+        {img:'res/img/kkk.jpg',country:'Sweden'}, {img:'res/img/kkk.jpg',country:'Sweden'},
+        {img:'res/img/kkk.jpg',country:'Sweden'}, {img:'res/img/kkk.jpg',country:'Sweden'},
+        {img:'res/img/kkk.jpg',country:'Sweden'}, {img:'res/img/kkk.jpg',country:'Sweden'},
         {img:'res/img/kkk.jpg',country:'Sweden'},
         {img:'res/img/kkk.jpg',country:'Sweden'}];
     $scope.title="通讯录哈哈";
